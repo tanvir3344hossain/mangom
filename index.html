@@ -1,0 +1,274 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --mango:#FFA726; --mango-dark:#F57C00; --mango-light:#FFE0B2;
+  --green:#43A047; --green-dark:#2E7D32;
+  --dark:#1F2937; --gray:#6B7280; --bg:#FFFBF5; --white:#fff;
+  --whatsapp:#25D366; --radius:16px;
+  --shadow:0 10px 30px rgba(245,124,0,.12);
+  --shadow-lg:0 20px 50px rgba(245,124,0,.18);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:var(--dark);background:var(--bg);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.container{width:90%;max-width:1200px;margin:0 auto}
+.accent{color:var(--mango-dark)}
+.eyebrow{display:inline-block;background:var(--mango-light);color:var(--mango-dark);padding:.4rem 1rem;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.8rem;border-radius:50px;font-weight:600;font-size:1rem;cursor:pointer;border:none;transition:all .3s ease;font-family:inherit}
+.btn--primary{background:linear-gradient(135deg,var(--mango),var(--mango-dark));color:#fff;box-shadow:0 8px 20px rgba(245,124,0,.35)}
+.btn--primary:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(245,124,0,.5)}
+.btn--ghost{background:transparent;color:var(--dark);border:2px solid var(--dark)}
+.btn--ghost:hover{background:var(--dark);color:#fff}
+.btn--small{padding:.55rem 1.2rem;font-size:.9rem;background:var(--green);color:#fff}
+.btn--small:hover{background:var(--green-dark)}
+.btn--full{width:100%}
+.nav{position:sticky;top:0;background:rgba(255,251,245,.95);backdrop-filter:blur(10px);z-index:100;border-bottom:1px solid rgba(0,0,0,.05)}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.logo{display:flex;align-items:center;gap:.5rem;font-size:1.4rem;font-weight:700}
+.logo__icon{font-size:1.8rem}
+.nav__links{display:flex;align-items:center;gap:2rem}
+.nav__links a{font-weight:500;position:relative;transition:color .2s}
+.nav__links a:not(.btn):hover{color:var(--mango-dark)}
+.nav__links a:not(.btn)::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--mango-dark);transition:width .3s}
+.nav__links a:not(.btn):hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem}
+.hamburger span{width:26px;height:3px;background:var(--dark);border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.hero{padding:4rem 0 6rem;position:relative;overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.15;margin-bottom:1.2rem}
+.hero p{font-size:1.1rem;color:var(--gray);margin-bottom:2rem;max-width:500px}
+.hero__cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.hero__stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+.hero__stats div{display:flex;flex-direction:column}
+.hero__stats strong{font-size:1.8rem;color:var(--mango-dark);font-weight:800}
+.hero__stats span{font-size:.85rem;color:var(--gray)}
+.hero__image{position:relative;height:500px;display:flex;align-items:center;justify-content:center}
+.blob{position:absolute;width:420px;height:420px;background:linear-gradient(135deg,var(--mango),var(--mango-dark));border-radius:42% 58% 70% 30%/45% 45% 55% 55%;animation:morph 8s ease-in-out infinite;box-shadow:var(--shadow-lg)}
+@keyframes morph{0%,100%{border-radius:42% 58% 70% 30%/45% 45% 55% 55%}50%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}}
+.mango-emoji{font-size:18rem;position:relative;z-index:2;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 20px 30px rgba(0,0,0,.2))}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+.floating{position:absolute;font-size:3rem;z-index:3}
+.leaf{top:10%;left:10%;animation:float 5s ease-in-out infinite}
+.leaf2{bottom:15%;right:5%;animation:float 6s ease-in-out infinite reverse}
+.section__head{text-align:center;max-width:600px;margin:0 auto 3.5rem}
+.section__head h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:1rem}
+.section__head p{color:var(--gray)}
+.fruits{padding:5rem 0;background:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+.card{background:var(--bg);border-radius:var(--radius);padding:2rem 1.5rem;text-align:center;transition:all .3s ease;border:1px solid transparent;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle,var(--mango-light) 0%,transparent 60%);opacity:0;transition:opacity .4s}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--mango-light)}
+.card:hover::before{opacity:.4}
+.card>*{position:relative;z-index:1}
+.card__emoji{font-size:5rem;margin-bottom:1rem;display:inline-block;transition:transform .4s}
+.card:hover .card__emoji{transform:scale(1.15) rotate(-8deg)}
+.card h3{font-size:1.3rem;margin-bottom:.4rem}
+.card__desc{color:var(--gray);font-size:.92rem;margin-bottom:1rem;min-height:42px}
+.card__price{font-size:1.4rem;font-weight:700;color:var(--mango-dark);margin-bottom:1.2rem}
+.card__price span{font-size:.85rem;color:var(--gray);font-weight:500}
+.card .btn{width:100%}
+.features{padding:5rem 0}
+.features__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.feature{text-align:center;padding:2rem 1.5rem;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .3s}
+.feature:hover{transform:translateY(-5px)}
+.feature__icon{font-size:3rem;margin-bottom:1rem}
+.feature h3{margin-bottom:.5rem;font-size:1.15rem}
+.feature p{color:var(--gray);font-size:.92rem}
+.contact{padding:5rem 0;background:linear-gradient(135deg,#FFF5E6 0%,#FFE8CC 100%)}
+.contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.contact__info h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:1rem}
+.contact__info>p{color:var(--gray);margin-bottom:2rem}
+.contact__list{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2rem}
+.contact__list li{display:flex;gap:1rem;align-items:flex-start;background:#fff;padding:1rem 1.2rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+.contact__list span{font-size:1.5rem}
+.contact__list strong{display:block;font-size:.85rem;color:var(--gray);font-weight:500}
+.contact__list a,.contact__list div span{color:var(--dark);font-weight:600}
+.contact__form{background:#fff;padding:2.5rem;border-radius:var(--radius);box-shadow:var(--shadow-lg)}
+.contact__form h3{margin-bottom:1.5rem;font-size:1.4rem}
+.field{margin-bottom:1.2rem}
+.field label{display:block;margin-bottom:.4rem;font-size:.9rem;font-weight:500}
+.field input,.field select,.field textarea{width:100%;padding:.85rem 1rem;border:2px solid #E5E7EB;border-radius:10px;font-family:inherit;font-size:.95rem;transition:border-color .2s;background:#fff}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--mango)}
+.footer{background:var(--dark);color:#fff;padding:2rem 0}
+.footer__inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer__links{display:flex;gap:1.5rem}
+.footer__links a{transition:color .2s;font-size:.95rem}
+.footer__links a:hover{color:var(--mango)}
+.whatsapp-float{position:fixed;bottom:25px;right:25px;width:60px;height:60px;background:var(--whatsapp);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4);z-index:99;transition:transform .3s;animation:pulse 2s infinite}
+.whatsapp-float:hover{transform:scale(1.1)}
+@keyframes pulse{0%,100%{box-shadow:0 8px 24px rgba(37,211,102,.4)}50%{box-shadow:0 8px 24px rgba(37,211,102,.7),0 0 0 12px rgba(37,211,102,0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:860px){
+  .hamburger{display:flex}
+  .nav__links{position:fixed;top:70px;right:-100%;flex-direction:column;background:#fff;width:80%;max-width:300px;height:calc(100vh - 70px);padding:2rem;gap:1.5rem;align-items:flex-start;box-shadow:-10px 0 30px rgba(0,0,0,.1);transition:right .3s ease}
+  .nav__links.active{right:0}
+  .hero__grid,.contact__grid{grid-template-columns:1fr}
+  .hero__image{height:380px;order:-1}
+  .mango-emoji{font-size:13rem}
+  .blob{width:320px;height:320px}
+  .hero{padding:2rem 0 4rem}
+  .hero p{margin-left:auto;margin-right:auto}
+  .hero__text{text-align:center}
+  .hero__cta,.hero__stats{justify-content:center}
+}
+@media(max-width:480px){
+  .contact__form{padding:1.5rem}
+  .hero__stats{gap:1.5rem}
+  .hero__stats strong{font-size:1.4rem}
+  .whatsapp-float{width:54px;height:54px;bottom:18px;right:18px}
+}
+</style>
+</head>
+<body>
+<!-- NAV -->
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="#home" class="logo">
+      <span class="logo__icon">🥭</span>
+      <span>Mango<strong>Land</strong></span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#fruits">Fruits</a>
+      <a href="#contact">Contact</a>
+      <a href="https://wa.me/8801763685251" class="btn btn--small" target="_blank" rel="noopener">Order Now</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero__grid">
+    <div class="hero__text">
+      <h1>Taste the <span class="accent">King of Fruits</span> — Fresh From the Orchard</h1>
+      <p>Premium quality mangoes delivered to your doorstep. Sweet, juicy, and naturally ripened — straight from Rajshahi's finest farms.</p>
+      <div class="hero__cta">
+        <a href="https://wa.me/8801763685251?text=Hi%2C%20I%20want%20to%20order%20fresh%20mangoes" target="_blank" rel="noopener" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.05 0C5.5 0 .18 5.32.18 11.87a11.8 11.8 0 0 0 1.59 5.93L0 24l6.34-1.66a11.86 11.86 0 0 0 5.7 1.45h.01c6.55 0 11.87-5.32 11.87-11.87a11.8 11.8 0 0 0-3.4-8.44zM12.05 21.8h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.76.98 1-3.67-.24-.38a9.86 9.86 0 0 1-1.51-5.27c0-5.45 4.44-9.88 9.9-9.88a9.85 9.85 0 0 1 9.9 9.88c0 5.46-4.44 9.93-9.88 9.93zm5.43-7.4c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.21 5.08 4.5.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.34z"/></svg>
+          Order on WhatsApp
+        </a>
+        <a href="https://wa.me/8801763685251?text=Hi%2C%20I%20want%20to%20order%20fresh%20mangoes" target="_blank" rel="noopener" class="btn btn--primary">💬 Order on WhatsApp</a>
+        <a href="#fruits" class="btn btn--ghost">Browse Fruits</a>
+      </div>
+      <div class="hero__stats">
+        <div><strong>5K+</strong><span>Happy Customers</span></div>
+        <div><strong>12+</strong><span>Mango Varieties</span></div>
+        <div><strong>24h</strong><span>Fast Delivery</span></div>
+      </div>
+    </div>
+    <div class="hero__image">
+      <div class="blob"></div>
+      <div class="mango-emoji">🥭</div>
+  </div>
+</section>
+<!-- FRUITS -->
+<section class="fruits" id="fruits">
+  <div class="container">
+    <div class="section__head">
+      <h2>Premium <span class="accent">Mango Varieties</span></h2>
+      <p>Carefully selected from the best orchards — each variety offers a unique taste, aroma, and texture.</p>
+    </div>
+    <div class="grid" id="fruitsGrid"></div>
+  </div>
+</section>
+<!-- WHY US -->
+<section class="features">
+  <div class="container features__grid">
+    <div class="feature"><div class="feature__icon">🌱</div><h3>100% Organic</h3><p>No chemicals, no artificial ripening. Pure nature in every bite.</p></div>
+  </div>
+</section>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container contact__grid">
+    <div class="contact__info">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Order Fresh Mangoes <span class="accent">Today</span></h2>
+      <p>Reach out via WhatsApp for fastest response. We're ready to deliver freshness to your door.</p>
+      <ul class="contact__list">
+        <li><span>📞</span><div><strong>Call / WhatsApp</strong><a href="tel:+8801763685251">+880 1763-685251</a></div></li>
+        <li><span>📧</span><div><strong>Email</strong><a href="mailto:hello@mangoland.com">hello@mangoland.com</a></div></li>
+        <li><span>📍</span><div><strong>Location</strong><span>Rajshahi, Bangladesh</span></div></li>
+      </ul>
+      <a href="https://wa.me/8801763685251?text=Hi%2C%20I%20want%20to%20order%20fresh%20mangoes" target="_blank" rel="noopener" class="btn btn--primary">
+        💬 Order on WhatsApp
+      </a>
+    </div>
+      <a href="https://wa.me/8801763685251?text=Hi%2C%20I%20want%20to%20order%20fresh%20mangoes" target="_blank" rel="noopener" class="btn btn--primary">💬 Order on WhatsApp</a>
+    </div>
+    <form class="contact__form" id="contactForm">
+      <h3>Send a Message</h3>
+      <div class="field"><label>Your Name</label><input type="text" required placeholder="John Doe"/></div>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span id="year"></span> Royal Mango . Made with 🥭 in Bangladesh.</p>
+  </div>
+</footer>
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/8801763685251" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.05 0C5.5 0 .18 5.32.18 11.87a11.8 11.8 0 0 0 1.59 5.93L0 24l6.34-1.66a11.86 11.86 0 0 0 5.7 1.45h.01c6.55 0 11.87-5.32 11.87-11.87a11.8 11.8 0 0 0-3.4-8.44zM12.05 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.76.98 1-3.67-.24-.38a9.86 9.86 0 0 1-1.51-5.27c0-5.45 4.44-9.88 9.9-9.88a9.85 9.85 0 0 1 9.9 9.88c0 5.46-4.44 9.93-9.88 9.93z"/></svg>
+</a>
+<script src="script.js"></script>
+<script>
+const WHATSAPP = '8801763685251';
+const fruits = [
+  {emoji:'🥭',name:'Himsagar',desc:'Sweet, fiberless, melt-in-your-mouth classic.',price:'180'},
+  {emoji:'🥭',name:'Langra',desc:'Tangy-sweet with a rich aroma. A summer favorite.',price:'160'},
+  {emoji:'🥭',name:'Amrapali',desc:'Deep orange, intensely sweet and aromatic.',price:'200'},
+  {emoji:'🥭',name:'Fazli',desc:'Large size, perfect for sharing. Mildly sweet.',price:'140'},
+  {emoji:'🥭',name:'Haribhanga',desc:'Rangpur special — fiberless and incredibly juicy.',price:'170'},
+  {emoji:'🥭',name:'Mixed Box',desc:'A curated mix of our top 3 varieties — try them all.',price:'220'},
+];
+const grid = document.getElementById('fruitsGrid');
+grid.innerHTML = fruits.map(f => `
+  <div class="card reveal">
+    <div class="card__emoji">${f.emoji}</div>
+    <h3>${f.name}</h3>
+    <p class="card__desc">${f.desc}</p>
+    <div class="card__price">৳${f.price} <span>/ kg</span></div>
+    <a href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hi, I want to order ${f.name} mango (৳${f.price}/kg).`)}" target="_blank" rel="noopener" class="btn btn--primary">Order Now</a>
+  </div>
+`).join('');
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('active');
+  hamburger.classList.toggle('active', open);
+  hamburger.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('active');
+  hamburger.classList.remove('active');
+}));
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const els = [...e.target.elements].filter(el => el.tagName !== 'BUTTON');
+  const [name, phone, variety, message] = els;
+  const text = `Hi MangoLand! 🥭%0A%0AName: ${name.value}%0APhone: ${phone.value}%0AVariety: ${variety.value}%0AMessage: ${message.value || '-'}`;
+  window.open(`https://wa.me/${WHATSAPP}?text=${text}`, '_blank');
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => en.isIntersecting && en.target.classList.add('visible'));
+}, {threshold:.15});
+document.querySelectorAll('.card, .feature').forEach(el => {
+  el.classList.add('reveal');
+  io.observe(el);
+});
+</script>
+</body>
+</html>
