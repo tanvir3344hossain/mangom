@@ -236,7 +236,7 @@ const fruits = [
 const grid = document.getElementById('fruitsGrid');
 grid.innerHTML = fruits.map(f => `
   <div class="card reveal">
-    <div class="card__emoji">${f.emoji}</div>
+   <img src="${f.image}" alt="${f.name}" style="width: 100%; border-radius: 8px;">
     <h3>${f.name}</h3>
     <p class="card__desc">${f.desc}</p>
     <div class="card__price">৳${f.price} <span>/ kg</span></div>
