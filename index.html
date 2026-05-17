@@ -227,21 +227,22 @@ ul{list-style:none}
 const WHATSAPP = '8801763685251';
 const fruits = [
   {emoji:'33.jpg',name:'Himsagar',desc:'Sweet, fiberless, melt-in-your-mouth classic.',price:'180'},
-  {emoji:'🤩',name:'Langra',desc:'Tangy-sweet with a rich aroma. A summer favorite.',price:'160'},
+  {emoji:'33.jpg',name:'Langra',desc:'Tangy-sweet with a rich aroma. A summer favorite.',price:'160'},
   {emoji:'🥭',name:'Amrapali',desc:'Deep orange, intensely sweet and aromatic.',price:'200'},
   {emoji:'🥭',name:'Fazli',desc:'Large size, perfect for sharing. Mildly sweet.',price:'140'},
   {emoji:'🥭',name:'Haribhanga',desc:'Rangpur special — fiberless and incredibly juicy.',price:'170'},
   {emoji:'🥭',name:'Mixed Box',desc:'A curated mix of our top 3 varieties — try them all.',price:'220'},
 ];
 const grid = document.getElementById('fruitsGrid');
+
 grid.innerHTML = fruits.map(f => `
-  <div class="card reveal">
-   <img src="${f.image}" alt="${f.name}" style="width: 100%; border-radius: 8px;">
-    <h3>${f.name}</h3>
-    <p class="card__desc">${f.desc}</p>
-    <div class="card__price">৳${f.price} <span>/ kg</span></div>
-    <a href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hi, I want to order ${f.name} mango (৳${f.price}/kg).`)}" target="_blank" rel="noopener" class="btn btn--primary">Order Now</a>
-  </div>
+    <div class="card reveal">
+        <img src="${f.image}" alt="${f.name}" style="width: 100%; border-radius: 8px;">
+        
+        <h3>${f.name}</h3>
+        <p>${f.desc}</p>
+        <h4>৳${f.price}</h4>
+    </div>
 `).join('');
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
